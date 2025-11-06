@@ -1,6 +1,8 @@
 
 let productsHTML = '';
 
+const cart = [];
+
 products.forEach((product) => {
 productsHTML += `
       <div class="product-container">
