@@ -61,16 +61,9 @@ console.log(productsHTML);
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-document.querySelectorAll('.js-add-to-cart')
- .forEach((button) => {
-button.addEventListener('click', () =>{
-const productId = button.dataset.productId;
+function addtocart(productId,orderQuantity) {
 
-const selector = document.querySelector(`.js-quantity-selector-${productId}`);
-let orderQuantity = Number(selector.value);
-
-
-let matchingItem;
+    let matchingItem;
 
 cart.forEach((item) => {
 if(productId === item.productId){
@@ -87,8 +80,11 @@ if(matchingItem){
         quantity: orderQuantity
     });
 }
+}
 
-let cartQuantity = 0;
+function total_items(){
+
+    let cartQuantity = 0;
 
 cart.forEach((item) => {
 
@@ -97,6 +93,18 @@ cart.forEach((item) => {
 
 document.querySelector('.js-cart-quantity')
 .innerHTML = cartQuantity;
+}
+
+document.querySelectorAll('.js-add-to-cart')
+ .forEach((button) => {
+button.addEventListener('click', () =>{
+const productId = button.dataset.productId;
+
+const selector = document.querySelector(`.js-quantity-selector-${productId}`);
+let orderQuantity = Number(selector.value);
+
+addtocart(productId,orderQuantity);
+total_items();
 
 console.log(cartQuantity)
 console.log(cart);
