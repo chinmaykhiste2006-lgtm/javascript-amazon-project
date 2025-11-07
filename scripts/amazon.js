@@ -1,8 +1,11 @@
-import {cart} from '../data/cart.js';
+import {cart, total_items} from '../data/cart.js';
 import {addtocart} from '../data/cart.js';
-import {total_items} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
+
+const cartQuantity = total_items();
+document.querySelector('.js-cart-quantity').
+innerHTML = cartQuantity;
 
 let productsHTML = '';
 
@@ -73,7 +76,9 @@ const selector = document.querySelector(`.js-quantity-selector-${productId}`);
 let orderQuantity = Number(selector.value);
 
 addtocart(productId,orderQuantity);
-total_items();
+const cartQuantity = total_items();
+document.querySelector('.js-cart-quantity').
+innerHTML = cartQuantity;
 
 console.log(cart);
 });
