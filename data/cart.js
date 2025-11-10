@@ -57,18 +57,15 @@ return cartQuantity;
 
 export function removeFromCart(productId){
 
+const len = cart.length;
+  for(let i=0;i<len;i++){
 
-    const newCart = [];
+    if(cart[i].productId===productId){
 
-   cart.forEach((cartItem) => {
-
-       if(cartItem.productId !== productId){
-
-           newCart.push(cartItem);
-       }
-   }); 
-
-   cart = newCart;
+        cart.splice(i,1);
+        break;
+    }
+  }
 
 
    saveToStorage();
