@@ -2,6 +2,8 @@ import {cart, removeFromCart, total_items} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+
+
 const cartQuantity = total_items();
 document.querySelector('.js-cart-item-quantity').
 innerHTML = `${cartQuantity} Items`;
