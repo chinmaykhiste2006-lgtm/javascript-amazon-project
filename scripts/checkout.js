@@ -9,6 +9,10 @@ const cartQuantity = total_items();
 document.querySelector('.js-cart-item-quantity').
 innerHTML = `${cartQuantity} Items`;
 
+function renderOrderSummary(){
+
+
+
 let cartsummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -117,7 +121,7 @@ cartItem.deliveryOptionId;
 
 html += `
    <div class="delivery-option js-delivery-option"
-   data-product-id="${matchingProduct.Id}"
+   data-product-id="${matchingProduct.id}"
    data-delivery-option-id="${deliveryOption.id}">
                   <input type="radio" 
                   ${isChecked ? 'checked' : ''}
@@ -163,9 +167,13 @@ forEach((element) => {
 
 const {productId, deliveryOptionId} = element.dataset;
     updateDeliveryOption(productId, deliveryOptionId);
+    renderOrderSummary();
   });
 
 });
+}
+
+renderOrderSummary();
 
 
 
