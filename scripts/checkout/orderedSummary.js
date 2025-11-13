@@ -38,7 +38,7 @@ deliveryOption.deliveryDays,
 'days'
 );
 const dateString = deliveryDate.format(
-  'dddd, MMMM D' 
+  'MMMM,D' 
 );
 
 
@@ -96,7 +96,7 @@ deliveryOption.deliveryDays,
 'days'
   );
   const dateString = deliveryDate.format(
-    'dddd, MMMM D' 
+    'MMMM, dddd D' 
   );
 
   const priceString = deliveryOption.priceCents
