@@ -5,16 +5,22 @@ describe('test suite: addtocart', () => {
 
     it('adds an existing product to the cart', () => {
 
+spyOn(localStorage, 'setItem');
+
     });
 
 it('adds a new product to the cart', () => {
 spyOn(localStorage, 'getItem').and.callFake(() => {
     return JSON.stringify([]);
 });
+loadFromStorage();
+
+
 console.log(localStorage.getItem('cart'));
 
 addtocart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
 expect(cart.length).toEqual(1);
+expect(localStorage.setItem).toHaveBeenCalledTimes(1);
 });
 });
 
