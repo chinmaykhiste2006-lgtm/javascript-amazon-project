@@ -115,8 +115,6 @@ const businessCart = new Cart('business-oop');
 
 
 
-console.log(cart);
-console.log(businessCart);
 
 console.log(businessCart instanceof Cart);
 
