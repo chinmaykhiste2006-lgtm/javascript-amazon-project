@@ -1,5 +1,10 @@
 {
-    "rewrites": [
-      { "source": "/", "destination": "/amazon.html" }
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/amazon.html",
+        "permanent": false
+      }
     ]
   }
+  
