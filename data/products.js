@@ -46,6 +46,16 @@ this.priceCents = productDetails.priceCents;
 
     return '';
   }
+
+  getInstructionLink() {
+
+    return ``;
+  }
+  
+  getWarrentyLink() {
+  
+    return ``;
+  }
  }
 
 class Clothing extends Product {
@@ -65,6 +75,26 @@ extraInfoHTML(){
 }
 }
 
+class Appliance extends Product {
+
+instructionsLink;
+warrentyLink;
+
+constructor(productDetails){
+
+super(productDetails);
+this.instructionsLink = productDetails.i=this.instructionsLink;
+this.warrentyLink = productDetails.warrentyLink;
+}
+
+extraInfoHTML() {
+
+  return `<a href="${this.instructionsLink}" target="_blank">Instruction Chart</a>  <a href="${this.warrentyLink}" target="_blank">Warrenty Link</a>`;
+}
+
+
+
+}
 
  export const products = [
   {
@@ -126,7 +156,10 @@ extraInfoHTML(){
       "toaster",
       "kitchen",
       "appliances"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "/Users/chinmayrajeshkhiste/Documents/JS/javascript-amazon-project/images/appliance-instructions.png",
+    warrentyLink: "/Users/chinmayrajeshkhiste/Documents/JS/javascript-amazon-project/images/appliance-warranty.png"
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
@@ -728,6 +761,11 @@ extraInfoHTML(){
 ].map((productDetails) => {
   if(productDetails.type === 'clothing') {
     return new Clothing(productDetails);
+  }
+
+  else if(productDetails.type === 'appliance'){
+
+    return new Appliance(productDetails);
   }
 
 return new Product(productDetails);
