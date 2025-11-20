@@ -48,7 +48,7 @@ productsHTML += `
                     </select>
                 </div>
 
-                ${product.extraInfoHTML()}
+         ${product.extraInfoHTML()}
 
                 <div class="product-spacer"></div>
 
