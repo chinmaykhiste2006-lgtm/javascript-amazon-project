@@ -89,7 +89,7 @@ this.warrentyLink = productDetails.warrentyLink;
 
 extraInfoHTML() {
 
-  return `<a href="${this.instructionsLink}" target="_blank">Instruction Chart</a>  <a href="${this.warrentyLink}" target="_blank">Warrenty Link</a>`;
+  return `<a href="${this.instructionsLink}" target="_blank">Instructions</a>  <a href="${this.warrentyLink}" target="_blank">Warrenty</a>`;
 }
 
 
