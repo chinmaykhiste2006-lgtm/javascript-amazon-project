@@ -83,7 +83,7 @@ warrentyLink;
 constructor(productDetails){
 
 super(productDetails);
-this.instructionsLink = productDetails.i=this.instructionsLink;
+this.instructionsLink = productDetails.instructionsLink;
 this.warrentyLink = productDetails.warrentyLink;
 }
 
@@ -158,8 +158,8 @@ extraInfoHTML() {
       "appliances"
     ],
     type: "appliance",
-    instructionsLink: "/Users/chinmayrajeshkhiste/Documents/JS/javascript-amazon-project/images/appliance-instructions.png",
-    warrentyLink: "/Users/chinmayrajeshkhiste/Documents/JS/javascript-amazon-project/images/appliance-warranty.png"
+    instructionsLink: "images/appliance-instructions.png",
+    warrentyLink: "images/appliance-warranty.png"
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
