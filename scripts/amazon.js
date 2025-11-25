@@ -1,7 +1,11 @@
 import {cart, total_items} from '../data/cart.js';
 import {addtocart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import {products, loadProducts} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
+
+loadProducts(renderProductsGrid);
+
+function renderProductsGrid(){
 
 const cartQuantity = total_items();
 document.querySelector('.js-cart-quantity').
@@ -65,7 +69,7 @@ productsHTML += `
      `;
 });
 
-console.log(productsHTML);
+
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
@@ -85,3 +89,4 @@ innerHTML = cartQuantity;
 console.log(cart);
 });
  });
+}
