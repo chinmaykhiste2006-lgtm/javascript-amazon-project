@@ -39,7 +39,7 @@ this.priceCents = productDetails.priceCents;
 
   getPrice() {
 
-   return `$${formatCurrency(this.priceCents)}`
+   return `${formatCurrency(this.priceCents)}`
   }
 
   extraInfoHTML(){
