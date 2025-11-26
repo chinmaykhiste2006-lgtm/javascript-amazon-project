@@ -114,12 +114,14 @@ return response.json()
       }
     
     return new Product(productDetails);
-    });
+    })
     
     console.log('load products');
 
   });
-  return promise; 
+
+return promise;
+
 }
 
 /*
