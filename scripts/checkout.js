@@ -17,6 +17,7 @@ async function loadPage(){
             // reject('error3');
           resolve('value3');
           });
+          
       });
 
     } catch(error) {
