@@ -24,6 +24,7 @@ async function loadPage(){
    console.log('reject error. please try again later');
     }
 
+
 renderOrderSummary();
 renderPaymentSummary(); 
 
