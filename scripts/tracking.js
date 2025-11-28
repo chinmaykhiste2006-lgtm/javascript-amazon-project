@@ -1,11 +1,11 @@
 import { loadProductsFetch } from "../data/products.js";
 import { getProduct } from "../data/products.js";
 import { orders } from "../data/orders.js";
-import { total_items } from "../data/cart";
-import { cart } from "../data/cart.js";
+import { total_items} from "../data/cart.js";
 
 
-let trackingSumarryHTML = '';
+
+
 
    function getOrder(orderId){
     let matchingOrder;
@@ -16,28 +16,41 @@ let trackingSumarryHTML = '';
    })
 return matchingOrder;
 } 
+
+function getOrderProduct(productId, matchingOrder){
+
+    let matchingProduct;
+    matchingOrder.products.forEach((product) => {
+
+        if(product.productId === productId) {matchingProduct = product};
+    })
+
+    return matchingProduct;
+}
   
 async function trackSummary(){
 
 await loadProductsFetch();
+let totalItems = total_items();
+
+let trackingSummaryHTML = '';
 
 const url = new URL(window.location.href);
   const orderId = url.searchParams.get('orderId');
    const productId =  url.searchParams.get('productId');
 
-const matchingProduct = getProduct(productId);
 const matchingOrder = getOrder(orderId);
+const matchingOrderProduct = getOrderProduct(productId, matchingOrder);
+const matchingProduct = getProduct(productId);
 
-
-
-const formattedOrderTime = new Date(matchingOrder.orderTime).toLocaleDateString("en-US", {
+const formattedOrderTime = new Date(matchingOrderProduct.estimatedDeliveryTime).toLocaleDateString("en-US", {
             day: "numeric",
             month: "long"
           });
 
-  
+
       
-    trackingSumarryHTML = `<div class="order-tracking">
+    trackingSummaryHTML = `<div class="order-tracking">
         <a class="back-to-orders-link link-primary" href="orders.html">
           View all orders
         </a>
@@ -51,7 +64,7 @@ const formattedOrderTime = new Date(matchingOrder.orderTime).toLocaleDateString(
         </div>
 
         <div class="product-info">
-          Quantity: ${matchingProduct.quantity}
+          Quantity: ${matchingOrderProduct.quantity}
         </div>
 
         <img class="product-image" src="${matchingProduct.image}">
@@ -73,20 +86,10 @@ const formattedOrderTime = new Date(matchingOrder.orderTime).toLocaleDateString(
         </div>
       </div>`;
 
-      document.querySelector('.cart-item').
-      innerHTML = `${total_items}`;
 
       document.querySelector('.main').
       innerHTML = trackingSummaryHTML;
         }
 
-        try{
-            trackSummary();
-        } catch(error) {
-
-            console.log(`error. ${error}`);
-        }
-       
-        
-console.log(orderId);
-console.log(productId);
+    
+trackSummary();

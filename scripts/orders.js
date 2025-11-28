@@ -9,6 +9,7 @@ loadProductsFetch().then(()=> {
 
 
 
+
     orders.forEach((order) => {
     
         const formattedOrderTime = new Date(order.orderTime).toLocaleDateString("en-US", {
@@ -16,7 +17,7 @@ loadProductsFetch().then(()=> {
             month: "long"
           });
           
-     
+          console.log(order);
           
         
         let ordersHTML = '';
@@ -53,7 +54,7 @@ loadProductsFetch().then(()=> {
                     </div>
         
                     <div class="product-actions">
-                      <a href="../tracking.html?orderId=${order.id}&productId=${product.productId}">
+                      <a href="/tracking.html?orderId=${order.id}&productId=${product.productId}">
                         <button class="track-package-button button-secondary">
                           Track package
                         </button>
@@ -91,6 +92,8 @@ loadProductsFetch().then(()=> {
     
     });
 
+    console.log("orders.js loaded");
+console.log(orders);
  
     document.querySelector('.cart-quantity').
     innerHTML = `${total_items()}`;
@@ -105,4 +108,3 @@ console.log('some error happened' + error);
 });
 
 
-console.log(orders);
